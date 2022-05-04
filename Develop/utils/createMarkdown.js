@@ -45,9 +45,10 @@ const readMeLayout = data => {
 
   ### Contributing 
   ------------------
+  ${contributing}
 
-  ### Contact Information
-  -------------------------
+  ### Questions
+  ----------------
   ### Github: [${name}](https://github.com/${github})
   #### Email: ${email}
 `;

@@ -1,8 +1,7 @@
 // TODO: Include packages needed for this application
-const readMeLayout = require('./createMarkdown');
+const readMeLayout = require('./utils/createMarkdown');
 const fs = require('fs');
 const inquirer = require('inquirer');
-
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -35,7 +34,7 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'install',
+        name: 'installation',
         message: 'What are your installation instructions?',
     },
     {
@@ -58,14 +57,10 @@ const questions = [
         type: 'input',
         name: 'github',
         message: 'Enter your GitHub Username.',
-        validate: (value) => {
-            if (value) { return true }
-            else { return "Github required" }
-        }
     },
     {
         type: 'input',
-        name: 'questions',
+        name: 'email',
         message: 'Enter your email so others can reach you if they have questions.',
     },
 ];
@@ -73,13 +68,18 @@ const questions = [
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
-        if (err) throw err;
+        err ? console.log(err) : console.log('README created.')
     });
-    console.log('README created.');
 }
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt(questions)
+        .then((answers => {
+            const readme = readMeLayout(answers);
+            writeToFile("README.md", readme);
+        }));
+}
 
 // Function call to initialize app
 init();
