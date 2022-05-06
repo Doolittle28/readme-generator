@@ -34,7 +34,7 @@
 
 ## Screenshot/Video  
 
-![Readme Generator]
+![Readme Generator](assets/images/readmevideo.mov)
 
 ## Questions 
 
