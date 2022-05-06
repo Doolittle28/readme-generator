@@ -22,9 +22,15 @@
   
 `npm install inquirer`
 
+## Usage  
+
+-Run the following command at the root of your project and answer the prompted questions:  
+  
+`node index.js`
+
 ## License  
 
-[MIT](https://img.shields.io/badge/license-MIT-blue)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Screenshot/Video  
 
