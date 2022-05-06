@@ -1,15 +1,15 @@
-// TODO: Include packages needed for this application
+// variables/packages needed 
 const readMeLayout = require('./utils/createMarkdown');
 const fs = require('fs');
 const inquirer = require('inquirer');
 
-// TODO: Create an array of questions for user input
+// questions to be prompted when program is ran in command line
 const questions = [
     {
         type: 'input',
         name: 'name',
         message: 'What is your name?',
-        validate: (value) => {
+        validate: (value) => { // used to require name input
             if (value) { return true }
             else { return "Name Required" }
         }
@@ -18,7 +18,7 @@ const questions = [
         type: 'input',
         name: 'title',
         message: 'What is the title of your project?',
-        validate: (value) => {
+        validate: (value) => { // used to require title input 
             if (value) { return true }
             else { return "Title Required" }
         }
@@ -27,7 +27,7 @@ const questions = [
         type: 'input',
         name: 'description',
         message: 'What would you describe your project as?',
-        validate: (value) => {
+        validate: (value) => { // used to require description 
             if (value) { return true }
             else { return "Description Required" }
         }
@@ -50,8 +50,8 @@ const questions = [
     {
         type: 'list',
         name: 'license',
-        message: 'Provide license information.',
-        choices: ["MIT", "Mozilla_Public", "GNU_Affero General Public Licence v3", "GNU_General Public License v2", "GNU_Lesser General Public License v2.1", "Apache_2.0",]
+        message: 'Choose your license.',
+        choices: ["MIT", "Mozilla_Public", "GNU_AGPLv3", "GNU_GPLv2", "Apache_2.0", "None"]
     },
     {
         type: 'input',
@@ -65,14 +65,14 @@ const questions = [
     },
 ];
 
-// TODO: Create a function to write README file
+// function to create readme file and import data collected from user into that file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
         err ? console.log(err) : console.log('README created.')
     });
 }
 
-// TODO: Create a function to initialize app
+// function to initialize the app
 function init() {
     inquirer.prompt(questions)
         .then((answers => {
@@ -81,6 +81,6 @@ function init() {
         }));
 }
 
-// Function call to initialize app
+// calls function to initialize app
 init();
 
